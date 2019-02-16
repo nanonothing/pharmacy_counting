@@ -7,9 +7,6 @@ loc="C:\\Users\\G Liu\\Documents\\Python Scripts\\itcont.cvs"
 urllib.request.urlretrieve(url, loc)
 Pharm=pd.read_csv(loc)
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
-print(Pharm)
-#find the number of rows in the list
-#row_count = sum(1 for row in Pharm)
 
 #define class to store drug name, number of prescriber and total cost
 class drug:
