@@ -1,12 +1,15 @@
 import pandas as pd
 import numpy as np
-import urllib, csv
+import urllib, csv , operator
 
 url="https://raw.githubusercontent.com/InsightDataScience/pharmacy_counting/master/insight_testsuite/tests/test_1/input/itcont.txt"
 loc="C:\\Users\\G Liu\\Documents\\Python Scripts\\itcont.cvs"
 urllib.request.urlretrieve(url, loc)
 Pharm=pd.read_csv(loc)
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
+
+#find the number of rows in the list
+#row_count = sum(1 for row in Pharm)
 
 #define class to store drug name, number of prescriber and total cost
 class drug:
@@ -38,11 +41,16 @@ for index, row in Pharm.iterrows():
         output_data.append(drug(x, row["drug_cost"]))
         drug_list.update({drug_count:x})
        
- 
 
-print(drug_list)
-for i in range(drug_count+1):
-   print(output_data[i].name,output_data[i].num_prescriber,output_data[i].total_cost) 
+#sorted the output_data according to the total_cost value in descending order
+sorted_data=sorted(output_data, key=operator.attrgetter('total_cost'),reverse=True)
+
+#write the sorted_data into the text file row by row
+f=open('output.txt','w')
+f.write("drug_name,num_prescriber,total_cost\n")
+for i in range(drug_count): 
+    f.write(sorted_data[i].name+','+'%d'%sorted_data[i].num_prescriber+','+'%d' %sorted_data[i].total_cost+'\n')
+f.close()
    
 
         
