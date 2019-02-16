@@ -46,7 +46,7 @@ for index, row in Pharm.iterrows():
 sorted_data=sorted(output_data, key=operator.attrgetter('total_cost'),reverse=True)
 
 #write the sorted_data into the text file row by row
-f=open('top_cost_drug.txt','w')
+f=open('pharmacy_counting/output/top_cost_drug.txt','w')
 f.write("drug_name,num_prescriber,total_cost\n")
 for i in range(drug_count): 
     f.write(sorted_data[i].name+','+'%d'%sorted_data[i].num_prescriber+','+'%d' %sorted_data[i].total_cost+'\n')
