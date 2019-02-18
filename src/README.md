@@ -10,6 +10,6 @@ Each line of this file contain these fields:<br/>
 
 * drug_name: the exact drug name as shown in the input dataset
 * num_prescriber: the number of unique prescribers who prescribed the drug. For the purposes of this challenge, a prescriber is considered the same person if two lines share the same prescriber first and last names
-* total_cost: total cost of the drug across all prescribers<\br>
+* total_cost: total cost of the drug across all prescribers<br/>
 
 The data will be sorted in the descending order according to the total cost of the drug.
