@@ -4,7 +4,13 @@ This is the directory where your source code would reside.<br/>
 ## Demo Instruction<br/>
 The script pharmcy_counting.py is written in Python 3.7.2.
 ## Input data<br/>
- It provides information on prescription drugs prescribed by individual physicians and other health care providers. The dataset identifies prescribers by their ID, last name, and first name. It also describes the specific prescriptions that were dispensed at their direction, listed by drug name and the cost of the medication.<br/>
+ The input data will be a text file provides information on prescription drugs prescribed by individual physicians and other health care providers. <br/>
+ Each line of this file contain these fields:<br/>
+ * Id: Identitiy number of the prescribers
+ * Last_name: last name of the prescribers
+ * First_name: first name of the prescribers
+ * drug_name: drug name of the prescription
+ * cost: Cost of the medication
 ## Output data<br/>
 Each line of this file contain these fields:<br/>
 
