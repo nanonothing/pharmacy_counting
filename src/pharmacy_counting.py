@@ -4,7 +4,7 @@ import numpy as np
 import urllib, csv , operator
 
 
-loc="../input/itcont.txt"
+loc="pharmacy_counting/input/itcont.txt"
 Pharm=pd.read_csv(loc)
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
 
