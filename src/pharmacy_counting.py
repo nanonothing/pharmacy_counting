@@ -4,7 +4,7 @@ import numpy as np
 import urllib, csv , operator
 
 
-loc="Input\\itcont.cvs"
+loc="../Input/itcont.cvs"
 Pharm=pd.read_csv(loc)
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
 
