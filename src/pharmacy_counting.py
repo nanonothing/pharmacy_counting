@@ -3,14 +3,15 @@ import pandas as pd
 import numpy as np
 import urllib, csv , operator
 
-from pathlib import Path
+#from pathlib import Path
 
-data_folder = Path("input")
+#data_folder = Path("input")
 
-file_to_open = data_folder / "itcont.txt"
+#file_to_open = data_folder / "itcont.txt"
 
 
-Pharm=pd.read_csv(file_to_open)
+#Pharm=pd.read_csv(file_to_open)
+Pharm=pd.read_csv("itcont.txt")
 
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
 
@@ -52,11 +53,11 @@ for index, row in Pharm.iterrows():
 sorted_data=sorted(output_data, key=operator.attrgetter('total_cost'),reverse=True)
 
 #write the sorted_data into the text file row by row
-output_folder = Path("output")
+#output_folder = Path("output")
 
-file_to_write = output_folder / "top_cost_drug.txt"
-f=open(file_to_write,'w')
-
+#file_to_write = output_folder / "top_cost_drug.txt"
+#f=open(file_to_write,'w')
+f=open("top_cost_drug.txt",'w')
 f.write("drug_name,num_prescriber,total_cost\n")
 for i in range(drug_count): 
     f.write(sorted_data[i].name+','+'%d'%sorted_data[i].num_prescriber+','+'%d' %sorted_data[i].total_cost+'\n')
