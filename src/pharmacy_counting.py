@@ -3,9 +3,15 @@ import pandas as pd
 import numpy as np
 import urllib, csv , operator
 
+from pathlib import Path
 
-loc="pharmacy_counting/input/itcont.txt"
-Pharm=pd.read_csv(loc)
+data_folder = Path("input")
+
+file_to_open = data_folder / "itcont.txt"
+
+
+Pharm=pd.read_csv(file_to_open)
+
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
 
 #find the number of rows in the list
