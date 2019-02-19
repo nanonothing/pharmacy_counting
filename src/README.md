@@ -1,7 +1,7 @@
 This is the directory where your source code would reside.<br/>
 # Project: Pharmacy Counting <br/>
 ## Purpose<br/>
-Import a text file provides information on prescription drugs prescribed by individual physicians and other health care providers, the program will coumpute the number of  <br/>
+Import a text file provides information on prescription drugs prescribed by individual physicians and other health care providers, the program will coumpute the number of the prescribers to each drugs and the total cost of each drug.   <br/>
 ## Demo Instruction<br/>
 The script pharmcy_counting.py is written in Python 3.7.2.
 ## Input data<br/>
