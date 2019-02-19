@@ -13,7 +13,7 @@ file_to_open = data_folder / "itcont.txt"
 Pharm=pd.read_csv(file_to_open)
 
 
-Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
+Pharm.columns = ["id", "last_name", "first_name", "drug_name", "drug_cost"]
 
 #find the number of rows in the list
 #row_count = sum(1 for row in Pharm)
@@ -24,6 +24,9 @@ class drug:
         self.name=name
         self.num_prescriber=1
         self.total_cost=cost
+        self.prescriber_name=[]
+    
+        
 
 #drug_list: use this dictionary to store all distinct drugs
 #drug_count: index of distinct drugs
@@ -37,16 +40,21 @@ output_data.append(drug("drug name",0))
 #read the input data row by row
 for index, row in Pharm.iterrows():
     x=row["drug_name"]
-#if the drug name already appeared in previous row, add 1 to number of prescriber
+    y=row["last_name"]+","+["first_name"]
+  
+#if the drug name already appeared in previous row, add 1 to number of prescriber if prescriber is different
 # and add drug cost to total cost
     if x in drug_list.values():
-       output_data[drug_count].num_prescriber=output_data[drug_count].num_prescriber+1
-       output_data[drug_count].total_cost=output_data[drug_count].total_cost+row["drug_cost"]
+        if y not in output_data[drug_count].prescriber_name
+            output_data[drug_count].num_prescriber=output_data[drug_count].num_prescriber+1
+            output_data[drug_count].prescriber_name.append(y)
+        otput_data[drug_count].total_cost=output_data[drug_count].total_cost+row["drug_cost"]
 #if the drug name is new, creat new class object drug(x,cost) and update drug_count,drug_list
     else:
         drug_count=drug_count+1
         output_data.append(drug(x, row["drug_cost"]))
         drug_list.update({drug_count:x})
+        output_data[drug_count].prescriber_name.append(y)
        
 
 #sorted the output_data according to the total_cost value in descending order
