@@ -3,9 +3,8 @@ import pandas as pd
 import numpy as np
 import urllib, csv , operator
 
-url="https://raw.githubusercontent.com/InsightDataScience/pharmacy_counting/master/insight_testsuite/tests/test_1/input/itcont.txt"
-loc="C:\\Users\\G Liu\\Documents\\Python Scripts\\itcont.cvs"
-urllib.request.urlretrieve(url, loc)
+
+loc="Input\\itcont.cvs"
 Pharm=pd.read_csv(loc)
 Pharm.columns = ["id", "Last_Name", "First_Name", "drug_name", "drug_cost"]
 
