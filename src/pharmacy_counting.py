@@ -20,11 +20,12 @@ Pharm.columns = ["id", "last_name", "first_name", "drug_name", "drug_cost"]
 
 #define class to store drug name, number of prescriber and total cost
 class drug:
-    def __init__(self, name ,cost):
+    def __init__(self, name ,cost,prescriber_name):
         self.name=name
         self.num_prescriber=1
         self.total_cost=cost
         self.prescriber_name=[]
+        self.prescriber_name.append(prescriber_name)
     
         
 
@@ -43,18 +44,18 @@ for index, row in Pharm.iterrows():
     y=row["last_name"]+","+["first_name"]
   
 #if the drug name already appeared in previous row, add 1 to number of prescriber if prescriber is different
-# and add drug cost to total cost
+#update the prescriber name list, and add drug cost to total cost
     if x in drug_list.values():
         if y not in output_data[drug_count].prescriber_name
             output_data[drug_count].num_prescriber=output_data[drug_count].num_prescriber+1
             output_data[drug_count].prescriber_name.append(y)
-        otput_data[drug_count].total_cost=output_data[drug_count].total_cost+row["drug_cost"]
+        output_data[drug_count].total_cost=output_data[drug_count].total_cost+row["drug_cost"]
 #if the drug name is new, creat new class object drug(x,cost) and update drug_count,drug_list
     else:
         drug_count=drug_count+1
-        output_data.append(drug(x, row["drug_cost"]))
+        output_data.append(drug(x, row["drug_cost"],y))
         drug_list.update({drug_count:x})
-        output_data[drug_count].prescriber_name.append(y)
+        
        
 
 #sorted the output_data according to the total_cost value in descending order
